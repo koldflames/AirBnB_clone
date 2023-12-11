@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+"""The entry point for the HBnB console."""
+
 import cmd
 import re
 import json
