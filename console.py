@@ -9,7 +9,7 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """ Class for the command interpreter"""
+    """Class for the command interpreter"""
 
     prompt = "(hbnb) "
 
@@ -43,12 +43,14 @@ class HBNBCommand(cmd.Cmd):
                 return ""
 
             match_attr_and_value = re.search(
-                    '^(?:"([^"]*)")?(?:, (.*))?$', attr_or_dict)
+                '^(?:"([^"]*)")?(?:, (.*))?$', attr_or_dict)
             if match_attr_and_value:
-                attr_and_value = (match_attr_and_value.group(
-                    1) or "") + " " + (match_attr_and_value.group(2) or "")
+                attr_and_value = (
+                    match_attr_and_value.group(1) or "") + " " + (
+                        match_attr_and_value.group(2) or "")
 
-                command = method + " " + classname + " " + uid + " " + attr_and_value
+                command = (
+                    method + " " + classname + " " + uid + " " + attr_and_value)
         self.onecmd(command)
         return command
 
@@ -140,8 +142,10 @@ class HBNBCommand(cmd.Cmd):
             if words[0] not in storage.classes():
                 print("** class doesn't exist **")
             else:
-                instances = [str(obj) for key, obj in storage.all().items()
-                        if type(obj).__name__ == words[0]]
+                instances = [
+                    str(obj) for key, obj in storage.all().items()
+                    if type(obj).__name__ == words[0]
+                ]
                 print(instances)
         else:
             instance_list = [str(obj) for key, obj in storage.all().items()]
@@ -156,9 +160,10 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             matches = [
-                    k for k in storage.all() if k.startswith(
-                        words[0] + '.')]
-                    print(len(matches))
+                k for k in storage.all() if k.startswith(
+                    words[0] + '.')
+            ]
+            print(len(matches))
 
     def do_update(self, line):
         """Updates an instance by adding or updating attribute"""
@@ -211,5 +216,5 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    HBNBCommand
 
