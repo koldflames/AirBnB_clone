@@ -9,6 +9,8 @@ from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
+    """ Class for the command interpreter"""
+
     prompt = "(hbnb) "
 
     def default(self, line):
@@ -114,6 +116,7 @@ class HBNBCommand(cmd.Cmd):
                     print(storage.all()[key])
 
     def do_destroy(self, line):
+        """Deletes an instance based on the class name and id"""
         if line == "" or line is None:
             print("** class name missing **")
         else:
@@ -131,6 +134,7 @@ class HBNBCommand(cmd.Cmd):
                     storage.save()
 
     def do_all(self, line):
+        """Prints all string representation of all instances"""
         if line != "":
             words = line.split(' ')
             if words[0] not in storage.classes():
@@ -144,6 +148,7 @@ class HBNBCommand(cmd.Cmd):
             print(instance_list)
 
     def do_count(self, line):
+        """Counts the instances of a class"""
         words = line.split(' ')
         if not words[0]:
             print("** class name missing **")
@@ -156,6 +161,7 @@ class HBNBCommand(cmd.Cmd):
                     print(len(matches))
 
     def do_update(self, line):
+        """Updates an instance by adding or updating attribute"""
         if line == "" or line is None:
             print("** class name missing **")
             return
