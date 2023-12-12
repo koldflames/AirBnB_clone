@@ -60,3 +60,4 @@ class FileStorage:
     def attributes(self):
         """Returns attributes for classes"""
         return storage.attributes()
+
