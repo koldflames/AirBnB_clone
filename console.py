@@ -50,7 +50,8 @@ class HBNBCommand(cmd.Cmd):
                         match_attr_and_value.group(2) or "")
 
                 command = (
-                    method + " " + classname + " " + uid + " " + attr_and_value)
+                    method + " " + classname + " " + 
+                    uid + " " + attr_and_value)
         self.onecmd(command)
         return command
 
@@ -217,4 +218,3 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand
-
