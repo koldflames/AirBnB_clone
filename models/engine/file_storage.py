@@ -53,10 +53,10 @@ class FileStorage:
             return
         with open(FileStorage.__file_path, "r", encoding="utf-8") as f:
             obj_dict = json.load(f)
-            obj_dict = {k: self.classes()[v["__class__"]](**v) for k, v in obj_dict.items()}
+            obj_dict = {k: self.classes()[v["__class__"]](**v) 
+                    for k, v in obj_dict.items()}
             FileStorage.__objects = obj_dict
 
     def attributes(self):
         """Returns attributes for classes"""
         return storage.attributes()
-
